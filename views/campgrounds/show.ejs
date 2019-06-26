@@ -1,0 +1,57 @@
+<% include ../partials/header%>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p class="lead">Yelp Camp</p>
+                <div class="group-item">
+                    <div class="list-group-item active">Item 1</div>
+                    <div class="list-group-item">Item 2</div>
+                    <div class="list-group-item">Item 3</div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="thumbnail">
+                    <img class= "img-fluid" src="<%= camp.img%>">
+                    <hr>
+                    <div class="caption">
+                        
+                                <p class="pull-right">$9.00/night</p>
+                                <h4>
+                                    <a>
+                                        <%= camp.name.toUpperCase()%>
+                                    </a>
+                                </h4>
+                                <p>
+                                    <%= camp.desc%>
+                                </p>
+                         
+
+                    </div>
+
+                </div>
+                <div class="well">
+                    <div class="text-right"><a href="/campgrounds/<%= camp._id%>/comments/new" class="btn btn-sm btn-info">Add comment</a></div>
+                    <hr>
+                    <% camp.comments.forEach((comment)=>{%>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="pull-right"><em>10 days ago</em></p>
+                                <p><strong><%= comment.author.toUpperCase()%></strong></p>
+                                <p>
+                                    <%= comment.text%>
+                                </p>
+                            </div>
+                        </div>
+                        <%})%>
+                </div>
+            </div>
+
+
+
+
+            <a href="/campgrounds" class="btn btn-sm btn-primary text-center">Go Back</a>
+
+
+        </div>
+    </div>
+    <% include ../partials/footer%>
