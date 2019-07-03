@@ -9,7 +9,8 @@ var express = require("express"),
     User = require("./models/user"),
     seedDB = require("./seed");
 
-mongoose.connect("mongodb://localhost:27017/yelpCamp", { useNewUrlParser: true });
+//mongoose.connect("mongodb://localhost:27017/yelpCamp", { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://fahad:fahad@yelpcamp-esxrl.mongodb.net/yelp?retryWrites=true&w=majority", {useNewUrlParser : true, useCreateIndex : true});
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -156,7 +157,7 @@ app.get("/logout", (req,res)=>{
     req.logout();
     res.redirect("/");
 })
-app.listen(process.env.PORT, process.env.IP, function() { console.log("Yelpcamp Server Started!") });
+app.listen(process.env.PORT, function() { console.log("Yelpcamp Server Started!") });
 
 
 function isloggedin(req,res,next){
