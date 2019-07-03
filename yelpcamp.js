@@ -6,8 +6,8 @@ var express = require("express"),
     app = express(),
     campGrounds = require("./models/campground"),
     Comment = require("./models/comment"),
-    User = require("./models/user"),
-    seedDB = require("./seed");
+    User = require("./models/user");
+    //seedDB = require("./seed");
 
 //mongoose.connect("mongodb://localhost:27017/yelpCamp", { useNewUrlParser: true });
 mongoose.connect("mongodb+srv://fahad:fahad@yelpcamp-esxrl.mongodb.net/yelp?retryWrites=true&w=majority", {useNewUrlParser : true, useCreateIndex : true});
