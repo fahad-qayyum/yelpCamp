@@ -1,15 +1,22 @@
 var mongoose = require("mongoose");
 
-var yelpSchema = new mongoose.Schema({
-    name : String,
-    img : String,
-    desc : String,
-    comments : [
-        {
-            type : mongoose.Schema.Types.ObjectId,
-            ref : "Comment"
-        }]
+var campgroundSchema = new mongoose.Schema({
+   name: String,
+   image: String,
+   description: String,
+   author: {
+      id: {
+         type: mongoose.Schema.Types.ObjectId,
+         ref: "User"
+      },
+      username: String
+   },
+   comments: [
+      {
+         type: mongoose.Schema.Types.ObjectId,
+         ref: "Comment"
+      }
+   ]
 });
-var campGrounds = mongoose.model("camp",yelpSchema);
-module.exports = campGrounds;
 
+module.exports = mongoose.model("Campground", campgroundSchema);
